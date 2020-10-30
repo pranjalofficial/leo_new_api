@@ -31,7 +31,7 @@
             <tbody>
             @foreach ($branch as $item)
               <tr>
-                <th scope="row"><a class="btn btn-success" href="/branch">{{$item->id}}</a></th>
+                <th scope="row"><a class="btn btn-success" href="{{url('/'.$item->id)}}">{{$item->id}}</a></th>
                 <td>{{$item->address_line}}</td>
                 <td>{{$item->city}}</td>
                 <td>{{$item->state}}</td>

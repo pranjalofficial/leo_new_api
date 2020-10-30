@@ -19,7 +19,7 @@ class TableController extends Controller
     //get table details from id 
     public function getTableDetails($id){
         $table = DB::table('tblTables')->where('branch_id',$id)->get();
-        return view('/')->with('table',$table);
+        return view('dashboard')->with('table',$table);
 
     }
 
@@ -99,7 +99,7 @@ class TableController extends Controller
 
         $order = DB::table('tblOrderList')->where('table_id', $id)->get();
 
-        return view('order')->with('order',$order);
+        return view('pages.tables.data-order')->with('order',$order);
 
     }
 

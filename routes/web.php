@@ -13,9 +13,8 @@ use App\Http\Controllers\TableController;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-});
+Route::get('/{id}', [TableController::class,'getTableDetails']);
+
 Route::get('/old', function () {
     return view('dashboard_old');
 });
@@ -82,6 +81,7 @@ Route::group(['prefix' => 'tables'], function(){
     Route::get('basic-tables', function () { return view('pages.tables.basic-tables'); });
     Route::get('data-table', [TableController::class,'view_rest']);
     Route::get('data-branch', [TableController::class,'view_branch']);
+    Route::get('data-order/{id}', [TableController::class,'show_order']);
 });
 
 Route::group(['prefix' => 'icons'], function(){
