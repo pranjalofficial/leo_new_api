@@ -81,6 +81,7 @@ Route::group(['prefix' => 'charts'], function(){
 Route::group(['prefix' => 'tables'], function(){
     Route::get('basic-tables', function () { return view('pages.tables.basic-tables'); });
     Route::get('data-table', [TableController::class,'view_rest']);
+    Route::get('data-branch', [TableController::class,'view_branch']);
 });
 
 Route::group(['prefix' => 'icons'], function(){

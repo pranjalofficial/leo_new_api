@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB; 
+use app\tblCustomer;
+use app\tblTable;
+use app\tblOrder;
+use app\tblInvoices;
+use app\tblRestaurants;
+use app\tblMenuCategory;
 
 class RestarauntsController extends Controller
 {
@@ -23,7 +29,7 @@ class RestarauntsController extends Controller
 
     //get all the categories
     public function get_categories($id){
-        $branch = tblBranch::where('id',$id)->get();
+        $branch =  DB::table('tblBranches')->where('id',$id)->get();
         $temp = $branch->restraunt_id;
         $categories = tblMenuCategory::where('rest_id',$temp)->get();
         return $categories;

@@ -7,8 +7,8 @@
 @section('content')
 <nav class="page-breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Restaraunts</a></li>
-    <li class="breadcrumb-item active" aria-current="page">List of restaraunts</li>
+    <li class="breadcrumb-item"><a href="#">Branches</a></li>
+    <li class="breadcrumb-item active" aria-current="page">List of Branches</li>
   </ol>
 </nav>
 
@@ -29,14 +29,14 @@
               </tr>
             </thead>
             <tbody>
+            @foreach ($branch as $item)
               <tr>
-                @foreach ($rest as $item)
-                <th scope="row"><a class="btn btn-success" href="/tables/data-branch">{{$item->id}}</a></th>
-                <td>{{$item->name}}</td>
-                <td>{{$item->descp}}</td>
-                <td><img src={{$item->img}}></td>
-                @endforeach
+                <th scope="row"><a class="btn btn-success" href="/branch">{{$item->id}}</a></th>
+                <td>{{$item->address_line}}</td>
+                <td>{{$item->city}}</td>
+                <td>{{$item->state}}</td>
               </tr>
+              @endforeach
             </tbody>
           </table>
         </div>

@@ -4,13 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB; 
+use app\tblRestaurants;
+use app\tblBranch;
+use app\User;
+use app\tblTables;
+use app\tblMenu;
+use app\tblAddOns;
+use app\tblMenuCategory;
+use app\tblOrderList;
+use app\tblCustomer;
 
 class TableController extends Controller
 {
     //get table details from id 
     public function getTableDetails($id){
         $table = DB::table('tblTables')->where('branch_id',$id)->get();
-        return view('tables')->with('table',$table);
+        return view('/')->with('table',$table);
 
     }
 
@@ -66,7 +75,7 @@ class TableController extends Controller
 
     public function view_branch(){
         $branch = DB::table('tblBranch')->get();
-        return view('branch')->with('branch',$branch);
+        return view('pages.tables.data-branch')->with('branch',$branch);
     }
 
     public function add_rest(Request $request){
