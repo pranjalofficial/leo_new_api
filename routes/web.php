@@ -123,3 +123,5 @@ Route::any('/{page?}',function(){
 Route::put('/minu/order/{id}',[TableController::class,'minusUpdate']);
 
 Route::put('/plus/order/{id}',[TableController::class,'plusUpdate']);
+
+

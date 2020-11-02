@@ -34,6 +34,6 @@ Route::get('/register',[RestarauntsController::class,'register']);
 
 Route::get('/rest',[RestarauntsController::class,'getRestarants']);
 
-Route::put('/add/order/{id}',[TableController::class,'minusUpdate']);
+Route::put('/add/order/{id}',[RestarauntsController::class,'minusUpdate']);
 
-Route::put('/sub/order/{id}',[TableController::class,'plusUpdate']);
+Route::put('/sub/order/{id}',[RestarauntsController::class,'plusUpdate']);
