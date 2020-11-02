@@ -33,3 +33,7 @@ Route::get('/login',[RestarauntsController::class,'login']);
 Route::get('/register',[RestarauntsController::class,'register']);
 
 Route::get('/rest',[RestarauntsController::class,'getRestarants']);
+
+Route::put('/add/order/{id}',[TableController::class,'minusUpdate']);
+
+Route::put('/sub/order/{id}',[TableController::class,'plusUpdate']);

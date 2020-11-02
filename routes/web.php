@@ -118,3 +118,8 @@ Route::get('/clear-cache', function() {
 Route::any('/{page?}',function(){
     return View::make('pages.error.404');
 })->where('page','.*');
+
+
+Route::put('/minu/order/{id}',[TableController::class,'minusUpdate']);
+
+Route::put('/plus/order/{id}',[TableController::class,'plusUpdate']);

@@ -134,4 +134,36 @@ class RestarauntsController extends Controller
         return $OldOrder;
     }
 
+    public function minusUpdate($id)
+    {
+        $order = DB::table('tblOrderList')
+        ->where('id', $id)->get();
+
+        $order1 = DB::table('tblOrderList')
+        ->where('id', $id)
+        ->update(['item_count' => $order->item_count-1],['item_total' => $order->item_total-$order->item_cost]);
+
+        $invoice = DB::table('tblInvoices')
+        ->where('id',$order->invoice_id)
+        ->update(['total' => $invoice->total-$order->item_cost]);
+
+        return redirect()->back();
+    }
+
+    public function plusUpdate($id)
+    {
+        $order = DB::table('tblOrderList')
+        ->where('id', $id)->get();
+
+        $order1 = DB::table('tblOrderList')
+        ->where('id', $id)
+        ->update(['item_count' => $order->item_count-1],['item_total' => $order->item_total+$order->item_cost]);
+
+        $invoice = DB::table('tblInvoices')
+        ->where('id',$order->invoice_id)
+        ->update(['total' => $invoice->total+$order->item_cost]);
+
+        return redirect()->back();
+    }
+
 }

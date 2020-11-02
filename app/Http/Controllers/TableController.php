@@ -185,7 +185,7 @@ class TableController extends Controller
         ->where('id',$order->invoice_id)
         ->update(['total' => $invoice->total-$order->item_cost]);
 
-        return redirect()->back()->with();
+        return redirect()->back();
     }
 
     public function plusUpdate($id)
@@ -201,7 +201,7 @@ class TableController extends Controller
         ->where('id',$order->invoice_id)
         ->update(['total' => $invoice->total+$order->item_cost]);
 
-        return redirect()->back()->with();
+        return redirect()->back();
     }
 
     public function AddEmployee(Request $request){

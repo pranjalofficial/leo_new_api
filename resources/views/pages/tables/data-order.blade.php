@@ -41,7 +41,7 @@
                 <tr>
                   <th scope="row"><a class="btn btn-success">{{$item->item_name}}</a></th>
                   <td>{{$item->item_cost}}</td>
-                  <td><a class="btn btn-primary" href="{{url('/minus/order/'.$item->id)}}" >-</a><span style="padding: 2%">{{$item->item_count}}</span><a class="btn btn-primary">+</a></td>
+                  <td><form class="btn btn-primary" method="post" action="/minus/order/<?php echo $item->id; ?>" ><button class="btn btn-wraning" type = 'submit'>-</button></form><span style="padding: 2%">{{$item->item_count}}</span><form class="btn btn-primary" method="post" action="/plus/order/<?php echo $item->id; ?>" ><button class="btn btn-wraning" type = 'submit'>+</button></form></td>
                   <td>{{$item->item_total}}</td>
                 </tr>
                 @endforeach
